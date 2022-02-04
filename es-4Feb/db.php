@@ -115,56 +115,72 @@ $cars = [
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <?php
-        foreach ($cars as $key => $car) { ?>
-        <div class="card">
-            <img src="<?php echo $car['immagine']; ?>" />
-            <div class="content">
-                <h1><?php echo $car['marca'] ?></h1>
-                <h2><?php echo $car['modello']; ?></h2>
-                <h3><?php echo $car['cavalli']; ?></h3>
-                <h3><?php echo $car['immatricolazione']; ?></h3>
-                <h3><?php echo $car['cilindrata']; ?></h3>
-                <h3><?php echo $car['accessori']; ?></h3>
-                <h3><?php echo $car['carburante']; ?></h3>
-                <h3><?php echo $car['intestatari']; ?></h3>
-                <h3><?php echo $car['km']; ?></h3>
-                <h3><?php echo $car['trasmissione']; ?></h3>
-                <h3><?php echo $car['carrozzeria']; ?></h3>
-                <h3><?php echo $car['trazione']; ?></h3>
-                <h3><?php echo $car['porte']; ?></h3>
-                <h3><?php echo $car['localita']; ?></h3>
-                <h3><?php echo $car['prezzo']; ?></h3>
-                <h3><?php echo $car['targa']; ?></h3>
-                <h3><?php echo $car['colore']; ?></h3>
-            </div>
+    foreach ($cars as $car) { ?>
+        <div class="card" style="display: flex; flex-direction: column;">
+        <?php
+            foreach ($car as $key => $value) {
+                if ($key == 'immagine') {
+                    echo '<img style="order: -1" src="' . $value . '" />';
+                } else {
+                    echo '<h3>' . $value . '</h3>';               
+                }
+            }
+        ?>
+
         </div>
-        <?php } ?>
-        // 'ID' => 1,
-        // 'marca' => 'Ford',
-        // 'modello' => 'Ranger Raptor',
-        // 'cavalli' => null,
-        // 'immatricolazione' => 2020,
-        // 'cilindrata' => 1997,
-        // 'accessori' => "Telecamera per parcheggio assistito, Chiusura centralizzata, Sistema di chiamata d'emergenza, Chiusura centralizzata senza chiave, Apple CarPlay, CD",
-        // 'carburante' => 'Diesel',
-        // 'intestatari' => '',
-        // 'km' => '6600',
-        // 'trasmissione' => 'Automatico',
-        // 'carrozzeria' => 'SUV, Fuoristrada, Pick-up',
-        // 'trazione' => 'integrale',
-        // 'porte' => '4',
-        // 'localita' => 'Lugano',
-        // 'prezzo' => 48800.00,
-        // 'targa' => '',
-        // 'colore' => 'Blu, Azzurro',
-        // 'immagine' =>
+    <?php } ?>
+    <!-- // 'ID' => 1,
+    // 'marca' => 'Ford',
+    // 'modello' => 'Ranger Raptor',
+    // 'cavalli' => null,
+    // 'immatricolazione' => 2020,
+    // 'cilindrata' => 1997,
+    // 'accessori' => "Telecamera per parcheggio assistito, Chiusura centralizzata, Sistema di chiamata d'emergenza, Chiusura centralizzata senza chiave, Apple CarPlay, CD",
+    // 'carburante' => 'Diesel',
+    // 'intestatari' => '',
+    // 'km' => '6600',
+    // 'trasmissione' => 'Automatico',
+    // 'carrozzeria' => 'SUV, Fuoristrada, Pick-up',
+    // 'trazione' => 'integrale',
+    // 'porte' => '4',
+    // 'localita' => 'Lugano',
+    // 'prezzo' => 48800.00,
+    // 'targa' => '',
+    // 'colore' => 'Blu, Azzurro',
+    // 'immagine' => -->
 </body>
+
 </html>
+
+<!-- 
+    <img src="<?php echo $car['immagine']; ?>" />
+    <div class="content">
+    <h1><?php echo $car['marca'] ?></h1>
+    <h2><?php echo $car['modello']; ?></h2>
+    <h3><?php echo $car['cavalli']; ?></h3>
+    <h3><?php echo $car['immatricolazione']; ?></h3>
+    <h3><?php echo $car['cilindrata']; ?></h3>
+    <h3><?php echo $car['accessori']; ?></h3>
+    <h3><?php echo $car['carburante']; ?></h3>
+    <h3><?php echo $car['intestatari']; ?></h3>
+    <h3><?php echo $car['km']; ?></h3>
+    <h3><?php echo $car['trasmissione']; ?></h3>
+    <h3><?php echo $car['carrozzeria']; ?></h3>
+    <h3><?php echo $car['trazione']; ?></h3>
+    <h3><?php echo $car['porte']; ?></h3>
+    <h3><?php echo $car['localita']; ?></h3>
+    <h3><?php echo $car['prezzo']; ?></h3>
+    <h3><?php echo $car['targa']; ?></h3>
+    <h3><?php echo $car['colore']; ?></h3>
+</div> -->

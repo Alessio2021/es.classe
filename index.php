@@ -48,22 +48,29 @@ $products = [
         'immagine' => 'https://thumbs.dreamstime.com/b/vista-superiore-delle-cotolette-crude-dell-agnello-con-i-rosmarini-ed-i-granelli-di-pepe-87814860.jpg',
         'tipologia' => 'Macelleria'
     ]
-    ];
+];
 
-$cardsFiltered = $cards;
+
+$productFiltered = $products;
+
+// 'nome' => 'Pollo Allo Spiedo',
+// 'prezzo' => '4,99',
+// 'immagine' => 'https://www.ricettedigusto.info/wp-content/uploads/2015/11/pollo-allo-spiedo-fatto-in-casa-1200x675.jpg',
+// 'tipologia' => 'Gastronomia'
 
 if (isset($_GET['genre']) !== false) {
-  $genre = $_GET['genre'];
-  if ($genre === 'all') {
-    $cardsFiltered = $cards;
-  } else {
-    $cardsFiltered = [];
-    foreach ($cards as $card) {
-      if ($card['genre'] === $genre) {
-        $cardsFiltered[] = $card;
-      }
+    $type = $_GET['genre'];
+    
+    if ($type === 'all') {
+        $productFiltered = $products;
+    } else {
+        $productFiltered = [];
+        foreach ($products as $product) {
+            if ($product['tipologia'] === $type) {
+                $productFiltered[] = $product;
+            }
+        }
     }
-  }
 } 
 
 ?>
@@ -81,10 +88,10 @@ if (isset($_GET['genre']) !== false) {
 </head>
 
 <body>
-    <form action="search.php" method="GET">
+    <form action="index.php" method="GET">
         <input type="text" name="titolo">
         <select name="genre" id="genre">
-            <option value="all">all</option>
+            <option value="all">All</option>
             <option value="Pescheria">Pescheria</option>
             <option value="Gastronomia">Gastronomia</option>
             <option value="Panetteria">Panetteria</option>
@@ -92,8 +99,9 @@ if (isset($_GET['genre']) !== false) {
         </select>
         <button>Cerca</button>
     </form>
+    
     <div class="d-flex">
-        <?php foreach ($products as $product) { ?>
+        <?php foreach ($productFiltered as $product) { ?>
             <div class="container">
                 <div class="image">
                     <img src="<?= $product['immagine'] ?>" alt="">
