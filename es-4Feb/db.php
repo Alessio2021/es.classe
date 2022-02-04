@@ -125,21 +125,23 @@ $cars = [
 </head>
 
 <body>
-    <?php
-    foreach ($cars as $car) { ?>
-        <div class="card" style="display: flex; flex-direction: column;">
+    <div class="d-flex">
         <?php
-            foreach ($car as $key => $value) {
-                if ($key == 'immagine') {
-                    echo '<img style="order: -1" src="' . $value . '" />';
-                } else {
-                    echo '<h3>' . $value . '</h3>';               
+        foreach ($cars as $car) { ?>
+            <div class="container" style="display: flex; flex-direction: column;">
+                <?php
+                foreach ($car as $key => $value) {
+                    if ($key == 'immagine') {
+                        echo '<img style="order: -1" src="' . $value . '" />';
+                    } else {
+                        echo '<h3>' . $value . '</h3>';
+                    }
                 }
-            }
-        ?>
+                ?>
 
-        </div>
-    <?php } ?>
+            </div>
+        <?php } ?>
+    </div>
     <!-- // 'ID' => 1,
     // 'marca' => 'Ford',
     // 'modello' => 'Ranger Raptor',
